@@ -1,6 +1,7 @@
 package br.com.fiap.bean;
 
 import java.util.Calendar;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -14,6 +15,7 @@ import br.com.fiap.repository.MusicianRepository;
 @RequestScoped
 public class MusicianBean {
 	private Musician musician;
+	private List<Musician> lstMusician;
 	private MusicianRepository repository;
 
 	public MusicianBean() {
@@ -45,5 +47,13 @@ public class MusicianBean {
 
 	public void setMusician(Musician musician) {
 		this.musician = musician;
+	}
+
+	public List<Musician> getLstMusician() {
+		return lstMusician;
+	}
+
+	public void setLstMusician(List<Musician> lstMusician) {
+		this.lstMusician = lstMusician;
 	}
 }
