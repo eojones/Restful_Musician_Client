@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><ui:insert name="title">FIAP | MUSICIAN</ui:insert></title>
+	<style>
+body * {
+	paddin: 20px;
+}
+
+#header {
+	margin-bottom: 50px;
+}
+</style>
+</h:head>
+
+<h:body>
+	<div id="header">
+		<ui:insert name="header">
+			<p:menubar>
+				<p:menuitem value="FIAP | Musician" url="#" />
+				<p:menuitem value="Register Musician" url="cadastro.xhtml" />
+			</p:menubar>
+		</ui:insert>
+	</div>
+	<div id="content">
+		<ui:insert name="content">
+
+		</ui:insert>
+	</div>
+	<div id="footer">
+		<ui:insert name="footer">
+
+		</ui:insert>
+	</div>
+
+</h:body>
+
+</html>
