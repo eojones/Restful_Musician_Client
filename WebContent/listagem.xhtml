@@ -10,8 +10,10 @@
 <ui:composition template="_template.xhtml">
 	<ui:define name="content">
 		<p:panel header="Musicians">
-			<p:dataTable value="#{musicianListBean.lstMusician}" var="t"
-				scrollable="true" scrollHeight="150"
+			<p:messages id="messages" autoUpdate="true" closable="true" />
+			<p:growl autoUpdate="true" />
+			<p:dataTable id="dados" value="#{musicianListBean.lstMusician}"
+				var="t" scrollable="true" scrollHeight="150"
 				emptyMessage="Musician not found!">
 				<p:column headerText="Name">
 	    			#{t.name}
@@ -27,10 +29,32 @@
 				<p:column headerText="Country">
 	    			#{t.country}
 	    		</p:column>
-	    		<p:column>
-	    			<p:commandButton icon="fa fa-pencil" type="button" />
-	    		</p:column>
+				<p:column>
+					<h:form>
+						<p:commandButton icon="ui-icon-pencil" action="alteracao.xhtml">
+							<f:setPropertyActionListener value="#{t}"
+								target="#{musicianAlterBean.musician}" />
+						</p:commandButton>
+
+						<p:commandButton icon="ui-icon-trash"
+							onclick="PF('confirmacao').show()">
+							<f:setPropertyActionListener value="#{t.id}"
+								target="#{musicianListBean.id}" />
+						</p:commandButton>
+
+					</h:form>
+				</p:column>
 			</p:dataTable>
+			<p:confirmDialog widgetVar="confirmacao" header="Aviso"
+				message="Deseja excluir? Esta ação não poderá ser desfeita.">
+
+				<p:commandButton value="Sim" icon="ui-icon-check"
+					action="#{musicianListBean.musician}" update="dados"
+					oncomplete="PF('confirmacao').hide()" />
+				<p:commandButton value="Não" icon="ui-icon-close"
+					onclick="PF('confirmacao').hide()" />
+
+			</p:confirmDialog>
 		</p:panel>
 	</ui:define>
 </ui:composition>

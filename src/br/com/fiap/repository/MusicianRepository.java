@@ -17,7 +17,7 @@ import br.com.fiap.entity.Musician;
 public class MusicianRepository {
 	private URL url;
 	private HttpURLConnection conn;
-	private String ws = "http://localhost:8081/Restful_Musician/rest/musician/";
+	private String ws = "http://localhost:8080/Restful_Musician/rest/musician/";
 
 	public void function(Musician m, String method, String path, String operacao) {
 		try {

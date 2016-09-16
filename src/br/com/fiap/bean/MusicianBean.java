@@ -40,6 +40,7 @@ public class MusicianBean {
 		}
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
+	
 
 	public Musician getMusician() {
 		return musician;
