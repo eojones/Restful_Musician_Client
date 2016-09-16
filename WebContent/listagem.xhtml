@@ -38,8 +38,8 @@
 
 						<p:commandButton icon="ui-icon-trash"
 							onclick="PF('confirmacao').show()">
-							<f:setPropertyActionListener value="#{t.id}"
-								target="#{musicianListBean.id}" />
+							<f:setPropertyActionListener value="#{t}"
+								target="#{musicianListBean.musician}" />
 						</p:commandButton>
 
 					</h:form>
@@ -49,7 +49,7 @@
 				message="Deseja excluir? Esta ação não poderá ser desfeita.">
 
 				<p:commandButton value="Sim" icon="ui-icon-check"
-					action="#{musicianListBean.musician}" update="dados"
+					action="#{musicianListBean.deletar}" update="dados"
 					oncomplete="PF('confirmacao').hide()" />
 				<p:commandButton value="Não" icon="ui-icon-close"
 					onclick="PF('confirmacao').hide()" />
