@@ -39,6 +39,7 @@ public class MusicianRepository {
 			if (statusCode != 201 && statusCode != 200) {
 				throw new Exception("Erro\n Operação: " + operacao);
 			}
+			ws = "http://localhost:8080/Restful_Musician/rest/musician/";
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
